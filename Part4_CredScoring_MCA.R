@@ -43,7 +43,7 @@ ggplot(data=mca.ind, aes(x=Dim.1, y=Dim.2, group=Status)) +
 geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(alpha=0.3, aes(colour=Status)) +
-opts(title="MCA plot of individuals")
+ggtitle("MCA plot of individuals")
 
 # let's plot the categories of the categorical variables
 # as well as the levels of Status (as illustrative variable)
@@ -56,6 +56,5 @@ geom_text(data=mca.var[1:56,], aes(x=Dim.1, y=Dim.2, label=rownames(mca.var[1:56
     alpha=0.4, size=3.5) +
 geom_text(data=mca.var[57:58,], size=5,
       aes(x=Dim.1, y=Dim.2, label=c("bad","good"), colour=as.factor(c("bad","good")))) +
-opts(title="MCA plot of variables",
-     legend.position="none")
+ggtitle("MCA plot of variables")
 

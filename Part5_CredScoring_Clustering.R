@@ -134,7 +134,7 @@ geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(aes(colour=cluster), alpha=0.5) +
 labs(x="Dim 1", y="Dim 2") +
-opts(title="MCA plot with clusters of individuals")
+ggtitle("MCA plot with clusters of individuals")
 
 # centers of gravity of the clusters
 cog = aggregate(as.data.frame(Psi), list(c1), mean)[,-1]
@@ -221,5 +221,5 @@ geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(aes(colour=EMC.class), alpha=0.5) +
 labs(x="Dim 1", y="Dim 2") +
-opts(title="MCA plot with clusters of individuals")
+ggtitle("MCA plot with clusters of individuals")
 

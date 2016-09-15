@@ -48,7 +48,7 @@ ggplot(data=Psi, aes(x=PC1, y=PC2)) +
 geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(alpha=0.3) +
-opts(title="PCA plot of individuals")
+ggtitle("PCA plot of individuals")
 
 # Plot of variables
 # function to create a circle
@@ -76,7 +76,7 @@ geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 xlim(-1.1,1.1) + ylim(-1.1,1.1) +
 labs(x="pc1 aixs", y="pc2 axis") +
-opts(title="Circle of correlations")
+title("Circle of correlations")
 
 
 # how would you interpret the first two dimensions?
@@ -98,7 +98,7 @@ ggplot(data=Psi, aes(x=PC1, y=PC2)) +
 geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(aes(colour=Status), alpha=0.3) +
-opts(title="PCA plot of individuals")
+ggtitle=("PCA plot of individuals")
 
 # let's try another plot adding density curves
 ggplot(data=Psi, aes(x=PC1, y=PC2, group=Status)) +
@@ -106,12 +106,13 @@ geom_hline(yintercept=0, colour="gray65") +
 geom_vline(xintercept=0, colour="gray65") +
 geom_point(aes(colour=Status), alpha=0.4, size=1.5) +
 stat_density2d(aes(colour=Status)) + 
-opts(title="PCA plot of individuals\nStatus as illustrative")
+ggtitle("PCA plot of individuals\nStatus as illustrative")
 
 # add centers of gravity (cog)
 stat1 = tapply(Psi[,1], dd$Status, mean)
 stat2 = tapply(Psi[,2], dd$Status, mean) 
 cog = data.frame(stat1, stat2, Status=c("bad","good"))
+
 
 ggplot() +
 geom_hline(yintercept=0, colour="gray65") +
@@ -120,5 +121,5 @@ geom_point(data=Psi, aes(x=PC1, y=PC2, colour=Status),
     alpha=0.2, size=1.5) +
 stat_density2d(data=Psi, aes(x=PC1, y=PC2, colour=Status), alpha=0.4) + 
 geom_point(data=cog, aes(stat1, stat2, colour=Status), size=5) +
-opts(title="PCA plot of individuals\nStatus as illustrative with centers of gravity")
+title("PCA plot of individuals\nStatus as illustrative with centers of gravity")
 
